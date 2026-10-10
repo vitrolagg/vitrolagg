@@ -125,6 +125,13 @@ Sistema em que clínicas registram agendamentos e fechamentos e o consultor resp
 **Tempo de programação na última semana** (inclui projetos privados, via [WakaTime](https://wakatime.com))
 
 <!--START_SECTION:waka-->
+
+```txt
+Total Time: 0 secs
+
+No activity tracked
+```
+
 <!--END_SECTION:waka-->
 
 ---
