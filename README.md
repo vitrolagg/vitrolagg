@@ -122,17 +122,11 @@ Sistema em que clínicas registram agendamentos e fechamentos e o consultor resp
   <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vitrolagg&layout=compact&hide_border=true" alt="Linguagens mais usadas">
 </p>
 
-**Tempo de programação na última semana** (inclui projetos privados, via [WakaTime](https://wakatime.com))
+**Tempo de programação na última semana** (inclui projetos privados)
 
-<!--START_SECTION:waka-->
-
-```txt
-Total Time: 0 secs
-
-No activity tracked
-```
-
-<!--END_SECTION:waka-->
+<p align="center">
+  <img src="wakatime.svg" alt="Tempo de programação por linguagem (WakaTime)">
+</p>
 
 ---
 

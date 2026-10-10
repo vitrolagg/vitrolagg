@@ -1,0 +1,54 @@
+# Gera a imagem com o tempo de programação do WakaTime usada no README do perfil
+name: WakaTime Metrics
+
+# Quando o workflow roda
+on:
+  # Todo dia às 3h UTC (meia-noite no horário de Brasília)
+  schedule:
+    - cron: '0 3 * * *'
+
+  # Permite rodar manualmente pela aba Actions do repositório
+  workflow_dispatch:
+
+jobs:
+  wakatime:
+    # Máquina virtual do GitHub onde o job roda
+    runs-on: ubuntu-latest
+
+    # Permissão para a action fazer commit da imagem gerada
+    permissions:
+      contents: write
+
+    steps:
+      # Busca os dados na API do WakaTime e gera o SVG na raiz do repositório
+      - uses: lowlighter/metrics@v3.34
+        with:
+          # Nome do arquivo gerado (é o que o README referencia)
+          filename: wakatime.svg
+
+          # O plugin do WakaTime não precisa de token do GitHub
+          token: NOT_NEEDED
+
+          # Desliga o conteúdo padrão (perfil, repositórios etc.), deixando só o WakaTime
+          base: ""
+
+          # Fuso horário usado nas datas
+          config_timezone: America/Sao_Paulo
+
+          # Liga o plugin do WakaTime
+          plugin_wakatime: yes
+
+          # API key guardada como secret do repositório (nunca aparece no código)
+          plugin_wakatime_token: ${{ secrets.WAKATIME_API_KEY }}
+
+          # Só tempo total/média diária e gráfico de linguagens (sem projetos, para não expor clientes)
+          plugin_wakatime_sections: time, languages-graphs
+
+          # Período: últimos 7 dias
+          plugin_wakatime_days: 7
+
+          # Quantidade máxima de linguagens no gráfico
+          plugin_wakatime_limit: 5
+
+          # Esconde o que não é linguagem de programação
+          plugin_wakatime_languages_ignored: markdown, json, yaml, text, ini
